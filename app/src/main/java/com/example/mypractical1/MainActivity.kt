@@ -4,14 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-//import android.widget.TextView
-//import android.widget.Toast
+import android.widget.TextView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var diceImage : ImageView
     lateinit var diceImage2 : ImageView
+    lateinit var diceImage3 : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,36 +21,14 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener { rollDice() }
         diceImage = findViewById(R.id.dice_image)
         diceImage2 = findViewById(R.id.dice_image2)
-        //val countButton: Button = findViewById(R.id.count_up)
-        //countButton.setOnClickListener { countUp() }
+        diceImage3 = findViewById(R.id.dice_image3)
     }
 
     private fun rollDice() {
-        //Toast.makeText(this, "button clicked",
-        //Toast.LENGTH_SHORT).show()
-
         diceImage.setImageResource(getRandomDiceImage())
         diceImage2.setImageResource(getRandomDiceImage())
-
-        //val resultText: TextView = findViewById(R.id.result_text)
-        //resultText.text = randomInt.toString()
-
-        //val diceImage: ImageView = findViewById(R.id.dice_image)
-        //diceImage.setImageResource(drawableResource)
+        diceImage3.setImageResource(getRandomDiceImage())
     }
-
-    //private fun countUp(){
-    //   val resultText: TextView = findViewById(R.id.result_text)
-    //
-    //   if(resultText.text == "Hello World!"){
-    //       resultText.text = "1"
-    //   }else{
-    //       var sum = resultText.text.toString().toInt()
-    //       if(sum < 6)
-    //           sum++
-    //           resultText.text = sum.toString()
-    //   }
-    //}
 
     private fun getRandomDiceImage(): Int{
         val randomInt = Random().nextInt(6) + 1
